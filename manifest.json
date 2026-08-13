@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Line Reader",
+    "description": "This is a line reader extension to help you read.",
+    "version": "1.0",
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["code.js"]
+      }
+    ]
+  }
