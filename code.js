@@ -1,21 +1,3 @@
-// Toggle off if already active
-var existing = document.getElementById("line-reader-ruler");
-var existingPicker = document.getElementById("line-reader-color-picker");
-
-
-if (existing) {
- existing.remove();
- if (existingPicker) existingPicker.remove();
-
-
- if (window.__lineReaderMove) {
-   document.removeEventListener("mousemove", window.__lineReaderMove);
-   window.__lineReaderMove = null;
- }
-
-
-} else {
-
 
  // make the line reader
  var ruler = document.createElement("div");
@@ -35,7 +17,7 @@ if (existing) {
  document.body.append(ruler);
 
 
- // ⭐ CREATE COLOR PICKER UI ⭐
+ //color picker 
  var picker = document.createElement("input");
  picker.type = "color";
  picker.id = "line-reader-color-picker";
@@ -58,14 +40,14 @@ if (existing) {
  document.body.appendChild(picker);
 
 
- // ⭐ UPDATE RULER COLOR WHEN USER PICKS A NEW ONE ⭐
+ //update ruler color  
  picker.addEventListener("input", () => {
    // add transparency (80 = ~50% opacity)
    ruler.style.backgroundColor = picker.value + "80";
  });
 
 
- // ⭐ MOVE RULER WITH MOUSE ⭐
+ //move ruler 
  function moveRuler(mouseEvent) {
    var mousePosition = mouseEvent.clientY;
    var updatePosition = mousePosition - 12;
@@ -75,4 +57,4 @@ if (existing) {
 
  window.__lineReaderMove = moveRuler;
  document.addEventListener("mousemove", moveRuler);
-}
+
