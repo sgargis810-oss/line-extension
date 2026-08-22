@@ -39,6 +39,19 @@
 
  document.body.appendChild(picker);
 
+ var exit = document.createElement("button");
+ exit.innerHTML = "X";
+ exit.style.position = "fixed";
+ exit.style.top = "10px";
+ exit.style.right = "10px";
+ exit.style.width = "40px";
+ exit.style.height = "40px";
+ exit.style.border = "none";
+ exit.style.color = "red";
+ exit.style.borderRadius = "4px";
+ exitBtn.style.cursor="pointer";
+ document.body.appendChild(exit);
+
 
  //update ruler color  
  picker.addEventListener("input", () => {
@@ -54,7 +67,12 @@
    ruler.style.top = updatePosition + "px";
  }
 
-
  window.__lineReaderMove = moveRuler;
  document.addEventListener("mousemove", moveRuler);
 
+ exit.onClick = function() {
+  document.removeEventListener("mousemove", moveRuler);
+  ruler.remove();
+  picker.remove();
+  exit.remove();
+ }
