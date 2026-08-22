@@ -49,7 +49,7 @@
  exit.style.border = "none";
  exit.style.color = "red";
  exit.style.borderRadius = "4px";
- exitBtn.style.cursor="pointer";
+ exit.style.cursor="pointer";
  document.body.appendChild(exit);
 
 
