@@ -43,7 +43,8 @@
  exit.innerHTML = "X";
  exit.style.position = "fixed";
  exit.style.top = "10px";
- exit.style.right = "10px";
+ exit.style.right = "60px";
+ exit.style.zIndex = "2147483647";
  exit.style.width = "40px";
  exit.style.height = "40px";
  exit.style.border = "none";
@@ -70,7 +71,7 @@
  window.__lineReaderMove = moveRuler;
  document.addEventListener("mousemove", moveRuler);
 
- exit.onClick = function() {
+ exit.onclick = function() {
   document.removeEventListener("mousemove", moveRuler);
   ruler.remove();
   picker.remove();
